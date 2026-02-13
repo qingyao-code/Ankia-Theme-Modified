@@ -30,7 +30,10 @@ if (publishStatus === "false") {
     }
 } else {
     const content = note.getContent();
-    note.setLabel("summary", extractTextFromHTML(content));
+    const summary = note.getLabelValue("summary");
+    if (summary === null || summary === "") {
+        note.setLabel("summary", extractTextFromHTML(content));
+    }
 
     tags.forEach((tag) => {
         const tagNote = api.getNoteWithLabel("blogTag", tag);
