@@ -38,7 +38,7 @@
   <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= note.hasLabel("timeLineRoot") ? `${siteName}` : `${note.title} - ${siteName}` %></title>
-  <meta name="keywords" content="<%= subRoot.note.getLabelValue("siteKeywords") %>">
+  <meta name="keywords" content="<%= note.hasLabel("siteKeywords") ? note.getLabelValue('siteKeywords'): subRoot.note.getLabelValue("siteKeywords") %>">
   <meta name="author" content="<%= bloggerName%>">
   <meta name="copyright" content="<%= bloggerName%>">
   <meta name="format-detection" content="telephone=no">
